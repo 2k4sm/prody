@@ -11,12 +11,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.k4sm.prody.DTOs.FakeProductDTO;
+import com.k4sm.prody.Exceptions.ProductNotFoundException;
 import com.k4sm.prody.Models.Catagory;
 import com.k4sm.prody.Models.Product;
 
 @Service
 public class productService implements productServiceInterface {
-    
+
     private RestTemplate restTemplate;
 
     private ModelMapper modelMapper = new ModelMapper();
@@ -41,10 +42,6 @@ public class productService implements productServiceInterface {
 
         List<Product> products = new ArrayList<>();
 
-        if (fakeStoreProductDTOS == null) {
-            return new ArrayList<>();
-        }
-
         for (FakeProductDTO fakeStoreProductDTO : fakeStoreProductDTOS) {
             Product product = this.modelMapper.map(fakeStoreProductDTO, Product.class);
             products.add(product);
@@ -62,8 +59,7 @@ public class productService implements productServiceInterface {
                 FakeProductDTO.class);
 
         if (fakeStoreProductDTO == null) {
-            return new Product();
-            // TODO add exception.
+            throw new ProductNotFoundException(String.format("product with id: %s not found", id));
         }
 
         Product product = this.modelMapper.map(fakeStoreProductDTO, Product.class);
@@ -114,11 +110,11 @@ public class productService implements productServiceInterface {
 
         List<FakeProductDTO> fakeStoreProductDTOS = responseEntity.getBody();
 
-        List<Product> products = new ArrayList<>();
-
         if (fakeStoreProductDTOS == null) {
-            return new ArrayList<>();
+            throw new ProductNotFoundException(String.format("products with catagory: %s not found", category));
         }
+
+        List<Product> products = new ArrayList<>();
 
         for (FakeProductDTO fakeStoreProductDTO : fakeStoreProductDTOS) {
             Product product = this.modelMapper.map(fakeStoreProductDTO, Product.class);
