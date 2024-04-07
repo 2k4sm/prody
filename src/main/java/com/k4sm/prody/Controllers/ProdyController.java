@@ -46,12 +46,12 @@ public class ProdyController {
         return this.productservice.createProduct(product);
     }
 
-    @PutMapping("/products/update/{id}")
+    @PutMapping("/products/{id}")
     public String updateProduct(@PathVariable("id") int id, @RequestBody Product product) {
         return this.productservice.updateProduct(id, product);
     }
 
-    @DeleteMapping("/products/delete/{id}")
+    @DeleteMapping("/products/{id}")
     public String deleteProduct(@PathVariable("id") int id) {
         return this.productservice.deleteProduct(id);
     }
