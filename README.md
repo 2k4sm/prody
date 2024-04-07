@@ -1,2 +1,3 @@
-# prody
-product service api using fakestoreapi
+# Prody
+
+### Product service api made using fakestoreapi.com
