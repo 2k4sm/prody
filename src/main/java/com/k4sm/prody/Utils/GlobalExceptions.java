@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.k4sm.prody.DTOs.ErrorMessage;
+import com.k4sm.prody.Exceptions.ErrorMessage;
 import com.k4sm.prody.Exceptions.CategoryNotFoundException;
 import com.k4sm.prody.Exceptions.ProductNotFoundException;
 

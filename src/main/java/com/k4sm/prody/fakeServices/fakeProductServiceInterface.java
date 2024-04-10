@@ -1,4 +1,4 @@
-package com.k4sm.prody.Services;
+package com.k4sm.prody.fakeServices;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import com.k4sm.prody.Models.Category;
 import com.k4sm.prody.Models.Product;
 
 @Repository
-public interface productServiceInterface {
+public interface fakeProductServiceInterface {
     List<Product> getAllProducts();
 
     Product getProductById(int id);

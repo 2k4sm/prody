@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.k4sm.prody.Models.Category;
 import com.k4sm.prody.Models.Product;
-import com.k4sm.prody.Services.productServiceInterface;
+import com.k4sm.prody.fakeServices.fakeProductServiceInterface;
 
 @RestController
 public class ProdyController {
 
     @Autowired
-    private productServiceInterface productservice;
+    private fakeProductServiceInterface productservice;
 
     @GetMapping("/products")
     public List<Product> getAllProducts() {

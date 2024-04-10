@@ -1,4 +1,4 @@
-package com.k4sm.prody.Services;
+package com.k4sm.prody.fakeServices;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +16,11 @@ import com.k4sm.prody.Models.Category;
 import com.k4sm.prody.Models.Product;
 
 @Service
-public class productService implements productServiceInterface {
+public class fakeProductService {
 
     private RestTemplate restTemplate;
 
-    public productService() {
+    public fakeProductService() {
         this.restTemplate = new RestTemplate();
     }
 
