@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.k4sm.prody.DTOs.FakeProductDTO;
-import com.k4sm.prody.Exceptions.CategoryNotFoundException;
 import com.k4sm.prody.Exceptions.ProductNotFoundException;
 import com.k4sm.prody.Models.Category;
 import com.k4sm.prody.Models.Product;
