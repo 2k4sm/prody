@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.k4sm.prody.Models.Catagory;
+import com.k4sm.prody.Models.Category;
 import com.k4sm.prody.Models.Product;
 import com.k4sm.prody.Services.productServiceInterface;
 
@@ -32,7 +32,7 @@ public class ProdyController {
     }
 
     @GetMapping("/products/categories")
-    public List<Catagory> getAllCategories() {
+    public List<Category> getAllCategories() {
         return this.productservice.getAllCategories();
     }
 
@@ -47,7 +47,7 @@ public class ProdyController {
     }
 
     @PutMapping("/products/{id}")
-    public String updateProduct(@PathVariable("id") int id, @RequestBody Product product) {
+    public Product updateProduct(@PathVariable("id") int id, @RequestBody Product product) {
         return this.productservice.updateProduct(id, product);
     }
 
