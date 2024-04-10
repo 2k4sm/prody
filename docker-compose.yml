@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  database:
+    image: 'postgres:latest'
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    volumes:
+      - ./.db/:/home/sm2k4/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: ${DB_UNAME}
+      POSTGRES_PASSWORD: ${DB_PWD}
+      POSTGRES_DB: ${DB_NAME}
+    expose:
+      - "5432"

@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: prody
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: update
+
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_UNAME}
+    password: ${DB_PWD}
