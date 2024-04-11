@@ -96,7 +96,7 @@ public class realProdyController {
     }
 
     @DeleteMapping("/products/{id}")
-    public String deleteProduct(@PathVariable("id") int id) {
-        return this.realProductService.deleteProduct(id);
+    public Product deleteProduct(@PathVariable("id") int id) {
+        return this.modelMapper.map(this.realProductService.deleteProduct(id), Product.class);
     }
 }

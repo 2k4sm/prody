@@ -45,51 +45,74 @@ public class realProductServiceImpl  {
     }
 
     public ProductEntity createProduct(RealCreateProductDTO product) {
+        ProductEntity newproduct = new ProductEntity();
         Optional<CategoryEntity> categoryVal = this.categoryServiceInterface.findCategoryEntityByName(product.getCategory());
         if (categoryVal.isEmpty() ){
             CategoryEntity category = new CategoryEntity();
             category.setName(product.getCategory());
             this.categoryServiceInterface.save(category);
+
+            newproduct.setTitle(product.getTitle());
+            newproduct.setPrice(product.getPrice());
+            newproduct.setImage(product.getImage());
+            newproduct.setDescription(product.getDescription());
+            newproduct.setCategory(category);
+        }else{
+            newproduct.setTitle(product.getTitle());
+            newproduct.setPrice(product.getPrice());
+            newproduct.setImage(product.getImage());
+            newproduct.setDescription(product.getDescription());
+            newproduct.setCategory(categoryVal.get());
         }
 
-        ProductEntity newproduct = new ProductEntity();
 
-        newproduct.setTitle(product.getTitle());
-        newproduct.setPrice(product.getPrice());
-        newproduct.setImage(product.getImage());
-        newproduct.setDescription(product.getDescription());
-        newproduct.setCategory(categoryVal.get());
 
         return this.productserviceInterface.save(newproduct);
     }
 
     public ProductEntity updateProduct(int id, RealCreateProductDTO product) {
+        Optional<ProductEntity> toUpdate = this.productserviceInterface.findById(id);
+
+        if (toUpdate.isEmpty()){
+            throw new ProductNotFoundException(String.format("Product with id %s not found",id));
+        }
+
+        ProductEntity updated = toUpdate.get();
+
         Optional<CategoryEntity> categoryVal = this.categoryServiceInterface.findCategoryEntityByName(product.getCategory());
         if (categoryVal.isEmpty() ){
             CategoryEntity category = new CategoryEntity();
             category.setName(product.getCategory());
             this.categoryServiceInterface.save(category);
+
+            updated.setTitle(product.getTitle());
+            updated.setPrice(product.getPrice());
+            updated.setImage(product.getImage());
+            updated.setDescription(product.getDescription());
+            updated.setCategory(category);
+        }else{
+            updated.setTitle(product.getTitle());
+            updated.setPrice(product.getPrice());
+            updated.setImage(product.getImage());
+            updated.setDescription(product.getDescription());
+            updated.setCategory(categoryVal.get());
         }
 
-        ProductEntity newproduct = new ProductEntity();
 
-        newproduct.setTitle(product.getTitle());
-        newproduct.setPrice(product.getPrice());
-        newproduct.setImage(product.getImage());
-        newproduct.setDescription(product.getDescription());
-        newproduct.setCategory(categoryVal.get());
 
-        return this.productserviceInterface.save(newproduct);
+        return this.productserviceInterface.save(updated);
     }
 
-    public String deleteProduct(int id) {
-        if (this.productserviceInterface.findById(id).isEmpty()){
+    public ProductEntity deleteProduct(int id) {
+        Optional<ProductEntity> productToDel = this.productserviceInterface.findById(id);
+
+        if (productToDel.isEmpty()){
             throw new ProductNotFoundException("Product with id " + id + " not found");
         }
 
         this.productserviceInterface.deleteById(id);
+        return productToDel.get();
 
-        return "Product with id " + id + " deleted";
     }
 
 }
