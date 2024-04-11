@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.k4sm.prody.Models.Category;
-import com.k4sm.prody.Models.Product;
+import com.k4sm.prody.models.Category;
+import com.k4sm.prody.models.Product;
 
 @Repository
 public interface fakeProductServiceInterface {

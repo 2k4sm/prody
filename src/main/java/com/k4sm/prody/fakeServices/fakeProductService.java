@@ -10,10 +10,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.k4sm.prody.DTOs.FakeProductDTO;
-import com.k4sm.prody.Exceptions.ProductNotFoundException;
-import com.k4sm.prody.Models.Category;
-import com.k4sm.prody.Models.Product;
+import com.k4sm.prody.dtos.FakeProductDTO;
+import com.k4sm.prody.exceptions.ProductNotFoundException;
+import com.k4sm.prody.models.Category;
+import com.k4sm.prody.models.Product;
 
 @Service
 public class fakeProductService {
