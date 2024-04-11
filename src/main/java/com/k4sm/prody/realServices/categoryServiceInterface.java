@@ -1,13 +1,11 @@
 package com.k4sm.prody.realServices;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.k4sm.prody.entity.CategoryEntity;
-import org.springframework.stereotype.Repository;
-
 import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 @Repository
 public interface categoryServiceInterface extends JpaRepository<CategoryEntity, Integer> {
-    Optional<CategoryEntity> findCategoryEntityByName(String category);
+  Optional<CategoryEntity> findCategoryEntityByName(String category);
 }

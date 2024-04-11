@@ -1,25 +1,23 @@
 package com.k4sm.prody.fakeServices;
 
-import java.util.List;
-
-import org.springframework.stereotype.Repository;
-
 import com.k4sm.prody.models.Category;
 import com.k4sm.prody.models.Product;
+import java.util.List;
+import org.springframework.stereotype.Repository;
 
 @Repository
 public interface fakeProductServiceInterface {
-    List<Product> getAllProducts();
+  List<Product> getAllProducts();
 
-    Product getProductById(int id);
+  Product getProductById(int id);
 
-    List<Product> getProductsByCategory(String category);
+  List<Product> getProductsByCategory(String category);
 
-    List<Category> getAllCategories();
+  List<Category> getAllCategories();
 
-    Product createProduct(Product product);
+  Product createProduct(Product product);
 
-    Product updateProduct(int id, Product product);
+  Product updateProduct(int id, Product product);
 
-    String deleteProduct(int id);
+  String deleteProduct(int id);
 }

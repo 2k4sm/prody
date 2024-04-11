@@ -6,9 +6,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class RealCreateProductDTO {
-    String title;
-    String description;
-    double price;
-    String image;
-    String category;
+  String title;
+  String description;
+  double price;
+  String image;
+  String category;
 }
