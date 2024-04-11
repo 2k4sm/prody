@@ -1,13 +1,13 @@
-package com.k4sm.prody.Utils;
+package com.k4sm.prody.utils;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.k4sm.prody.Exceptions.ErrorMessage;
-import com.k4sm.prody.Exceptions.CategoryNotFoundException;
-import com.k4sm.prody.Exceptions.ProductNotFoundException;
+import com.k4sm.prody.exceptions.ErrorMessage;
+import com.k4sm.prody.exceptions.CategoryNotFoundException;
+import com.k4sm.prody.exceptions.ProductNotFoundException;
 
 @ControllerAdvice
 public class GlobalExceptions {

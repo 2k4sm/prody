@@ -6,7 +6,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        ddl-auto: update
+    hibernate:
+      ddl-auto: update
 
   datasource:
     url: ${DB_URL}

@@ -1,4 +1,4 @@
-package com.k4sm.prody.DTOs;
+package com.k4sm.prody.dtos;
 
 import lombok.Getter;
 import lombok.Setter;

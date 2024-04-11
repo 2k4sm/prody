@@ -1,4 +1,4 @@
-package com.k4sm.prody.Exceptions;
+package com.k4sm.prody.exceptions;
 
 public class CategoryNotFoundException extends RuntimeException {
 

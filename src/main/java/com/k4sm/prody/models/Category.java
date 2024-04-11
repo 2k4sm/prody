@@ -1,4 +1,4 @@
-package com.k4sm.prody.Models;
+package com.k4sm.prody.models;
 
 import lombok.Getter;
 import lombok.Setter;
